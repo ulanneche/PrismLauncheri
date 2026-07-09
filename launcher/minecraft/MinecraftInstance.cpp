@@ -306,17 +306,23 @@ QSet<QString> MinecraftInstance::traits() const
 // FIXME: move UI code out of MinecraftInstance
 void MinecraftInstance::populateLaunchMenu(QMenu* menu)
 {
-    QAction* normalLaunch = menu->addAction(tr("&Launch"));
-    normalLaunch->setShortcut(QKeySequence::Open);
+    // Сделаем офлайн запуск основным и более заметным
     QAction* normalLaunchOffline = menu->addAction(tr("Launch &Offline"));
+    QFont boldFont = normalLaunchOffline->font();
+    boldFont.setBold(true);
+    normalLaunchOffline->setFont(boldFont);
     normalLaunchOffline->setShortcut(QKeySequence(tr("Ctrl+Shift+O")));
+    
+    QAction* normalLaunch = menu->addAction(tr("&Launch (Online)"));
+    normalLaunch->setShortcut(QKeySequence::Open);
+    
     QAction* normalLaunchDemo = menu->addAction(tr("Launch &Demo"));
     normalLaunchDemo->setShortcut(QKeySequence(tr("Ctrl+Alt+O")));
 
     normalLaunchDemo->setEnabled(supportsDemo());
 
-    connect(normalLaunch, &QAction::triggered, [this] { APPLICATION->launch(this); });
     connect(normalLaunchOffline, &QAction::triggered, [this] { APPLICATION->launch(this, LaunchMode::Offline); });
+    connect(normalLaunch, &QAction::triggered, [this] { APPLICATION->launch(this); });
     connect(normalLaunchDemo, &QAction::triggered, [this] { APPLICATION->launch(this, LaunchMode::Demo); });
 
     QString profilersTitle = tr("Profilers");

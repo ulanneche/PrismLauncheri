@@ -115,6 +115,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionLaunchInstance"/>
+   <addaction name="actionLaunchInstanceOffline"/>
    <addaction name="actionKillInstance"/>
    <addaction name="separator"/>
    <addaction name="actionEditInstance"/>
@@ -144,6 +145,7 @@
     <addaction name="actionAddInstance"/>
     <addaction name="separator"/>
     <addaction name="actionLaunchInstance"/>
+    <addaction name="actionLaunchInstanceOffline"/>
     <addaction name="actionKillInstance"/>
     <addaction name="separator"/>
     <addaction name="actionEditInstance"/>
@@ -347,6 +349,20 @@
    </property>
    <property name="toolTip">
     <string>Launch the selected instance.</string>
+   </property>
+  </action>
+  <action name="actionLaunchInstanceOffline">
+   <property name="icon">
+    <iconset theme="launch"/>
+   </property>
+   <property name="text">
+    <string>Launch &amp;Offline</string>
+   </property>
+   <property name="toolTip">
+    <string>Launch the selected instance in offline mode.</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+O</string>
    </property>
   </action>
   <action name="actionKillInstance">

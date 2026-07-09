@@ -52,16 +52,13 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionAddMicrosoft"/>
    <addaction name="actionAddOffline"/>
-   <addaction name="actionRefresh"/>
    <addaction name="actionRemove"/>
    <addaction name="actionSetDefault"/>
    <addaction name="actionNoDefault"/>
    <addaction name="actionMoveUp"/>
    <addaction name="actionMoveDown"/>
    <addaction name="separator"/>
-   <addaction name="actionManageSkins"/>
   </widget>
   <action name="actionSetDefault">
    <property name="text">
@@ -82,11 +79,6 @@
    </property>
    <property name="toolTip">
     <string>Manage Skins</string>
-   </property>
-  </action>
-  <action name="actionAddMicrosoft">
-   <property name="text">
-    <string>&amp;Add Microsoft</string>
    </property>
   </action>
   <action name="actionAddOffline">

@@ -1615,6 +1615,13 @@ void MainWindow::on_actionLaunchInstance_triggered()
     }
 }
 
+void MainWindow::on_actionLaunchInstanceOffline_triggered()
+{
+    if (m_selectedInstance && !m_selectedInstance->isRunning()) {
+        APPLICATION->launch(m_selectedInstance, LaunchMode::Offline);
+    }
+}
+
 void MainWindow::activateInstance(BaseInstance* instance)
 {
     APPLICATION->launch(instance);
@@ -1671,6 +1678,7 @@ void MainWindow::instanceChanged(const QModelIndex& current, [[maybe_unused]] co
         ui->instanceToolBar->setEnabled(true);
         setInstanceActionsEnabled(true);
         ui->actionLaunchInstance->setEnabled(m_selectedInstance->canLaunch());
+        ui->actionLaunchInstanceOffline->setEnabled(m_selectedInstance->canLaunch());
 
         ui->actionKillInstance->setEnabled(m_selectedInstance->isRunning());
         ui->actionExportInstance->setEnabled(m_selectedInstance->canExport());
