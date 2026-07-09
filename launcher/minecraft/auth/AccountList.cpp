@@ -591,12 +591,8 @@ void AccountList::setListFilePath(QString path, bool autosave)
 
 bool AccountList::anyAccountIsValid()
 {
-    for (auto account : m_accounts) {
-        if (account->ownsMinecraft()) {
-            return true;
-        }
-    }
-    return false;
+    // Any account is valid now, including offline accounts
+    return m_accounts.size() > 0;
 }
 
 void AccountList::fillQueue()

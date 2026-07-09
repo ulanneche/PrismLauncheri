@@ -70,7 +70,6 @@
 #include "ui/setupwizard/AutoJavaWizardPage.h"
 #include "ui/setupwizard/JavaWizardPage.h"
 #include "ui/setupwizard/LanguageWizardPage.h"
-#include "ui/setupwizard/LoginWizardPage.h"
 #include "ui/setupwizard/PasteWizardPage.h"
 #include "ui/setupwizard/SetupWizard.h"
 #include "ui/setupwizard/ThemeWizardPage.h"
@@ -1226,7 +1225,7 @@ bool Application::createSetupWizard()
     bool pasteInterventionRequired = settings()->get("PastebinURL") != "";
     bool validWidgets = m_themeManager->isValidApplicationTheme(settings()->get("ApplicationTheme").toString());
     bool validIcons = m_themeManager->isValidIconTheme(settings()->get("IconTheme").toString());
-    bool login = !m_accounts->anyAccountIsValid() && capabilities() & Application::SupportsMSA;
+    bool login = false;  // Disabled login wizard - always use offline accounts
     bool themeInterventionRequired = !validWidgets || !validIcons;
     bool wizardRequired = javaRequired || languageRequired || pasteInterventionRequired || themeInterventionRequired || askjava || login;
     if (wizardRequired) {

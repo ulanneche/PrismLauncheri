@@ -23,6 +23,8 @@ bool AuthSession::MakeOffline(QString offline_playername)
     session = "-";
     access_token = "0";
     player_name = offline_playername;
+    user_type = "offline";
+    launchMode = LaunchMode::Offline;
     return true;
 }
 
