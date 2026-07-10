@@ -12,7 +12,7 @@ set(Launcher_CommonName "QuartzLauncher")
 set(Launcher_DisplayName "Quartz Launcher")
 set(Launcher_AppID "org.quartzlauncher.QuartzLauncher")
 set(Launcher_Domain "quartzlauncher.org")
-set(Launcher_Git "https://github.com/YourGitHub/QuartzLauncher")
+set(Launcher_Git "https://github.com/ulanneche/PrismLauncheri")
 
 set(Launcher_Name "${Launcher_CommonName}" PARENT_SCOPE)
 set(Launcher_DisplayName "${Launcher_DisplayName}" PARENT_SCOPE)
