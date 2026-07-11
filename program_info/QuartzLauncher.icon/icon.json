@@ -1,19 +1,37 @@
 {
   "color-space-for-untagged-svg-colors" : "display-p3",
   "fill" : {
-    "solid" : "extended-gray:1.00000,1.00000"
+    "linear-gradient" : [
+      "extended-srgb:0.38039,0.33333,0.96078,1.00000",
+      "extended-srgb:0.00000,0.53333,1.00000,1.00000"
+    ],
+    "orientation" : {
+      "start" : {
+        "x" : 0.5,
+        "y" : 1
+      },
+      "stop" : {
+        "x" : 0.5,
+        "y" : 0.3
+      }
+    }
   },
   "groups" : [
     {
       "layers" : [
         {
-          "image-name" : "block.svg",
-          "name" : "block",
+          "blend-mode" : "normal",
+          "fill" : "none",
+          "glass" : true,
+          "hidden" : false,
+          "image-name" : "stunning-cluster-quartz-crystals_191095-86472.png",
+          "name" : "stunning-cluster-quartz-crystals_191095-86472",
+          "opacity" : 1,
           "position" : {
-            "scale" : 19.28,
+            "scale" : 1.5,
             "translation-in-points" : [
               0,
-              0
+              -8.464711837052278
             ]
           }
         }
@@ -24,42 +42,6 @@
       },
       "translucency" : {
         "enabled" : true,
-        "value" : 0.5
-      }
-    },
-    {
-      "blur-material-specializations" : [
-        {
-          "value" : 0.5
-        },
-        {
-          "appearance" : "dark",
-          "value" : null
-        }
-      ],
-      "layers" : [
-        {
-          "blend-mode" : "normal",
-          "fill" : "automatic",
-          "glass" : true,
-          "hidden" : false,
-          "image-name" : "rainbow.svg",
-          "name" : "rainbow",
-          "position" : {
-            "scale" : 19.28,
-            "translation-in-points" : [
-              0,
-              0
-            ]
-          }
-        }
-      ],
-      "shadow" : {
-        "kind" : "neutral",
-        "opacity" : 0.5
-      },
-      "translucency" : {
-        "enabled" : false,
         "value" : 0.5
       }
     }

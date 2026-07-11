@@ -1,6 +1,8 @@
 #!/bin/bash
 
-LAUNCHER_APPID="org.prismlauncher.PrismLauncher"
+set -e
+
+LAUNCHER_APPID="org.quartzlauncher.QuartzLauncher"
 
 svg2png() {
     input_file="$1"
@@ -8,63 +10,100 @@ svg2png() {
     width="$3"
     height="$4"
 
-    inkscape -w "$width" -h "$height" -o "$output_file" "$input_file"
+    inkscape \
+        -w "$width" \
+        -h "$height" \
+        -o "$output_file" \
+        "$input_file"
 }
 
-if command -v "inkscape" && command -v "icotool" && command -v "oxipng"; then
-    # Windows ICO
+# ----------------------------------------------------------------------
+# Windows ICO
+# ----------------------------------------------------------------------
+
+if command -v inkscape >/dev/null && \
+   command -v icotool >/dev/null && \
+   command -v oxipng >/dev/null; then
+
     d=$(mktemp -d)
 
-    svg2png ${LAUNCHER_APPID}.svg "$d/prismlauncher_16.png" 16 16
-    svg2png ${LAUNCHER_APPID}.svg "$d/prismlauncher_24.png" 24 24
-    svg2png ${LAUNCHER_APPID}.svg "$d/prismlauncher_32.png" 32 32
-    svg2png ${LAUNCHER_APPID}.svg "$d/prismlauncher_48.png" 48 48
-    svg2png ${LAUNCHER_APPID}.svg "$d/prismlauncher_64.png" 64 64
-    svg2png ${LAUNCHER_APPID}.svg "$d/prismlauncher_128.png" 128 128
-    svg2png ${LAUNCHER_APPID}.svg "$d/prismlauncher_256.png" 256 256
+    svg2png "${LAUNCHER_APPID}.svg" "$d/quartzlauncher_16.png" 16 16
+    svg2png "${LAUNCHER_APPID}.svg" "$d/quartzlauncher_24.png" 24 24
+    svg2png "${LAUNCHER_APPID}.svg" "$d/quartzlauncher_32.png" 32 32
+    svg2png "${LAUNCHER_APPID}.svg" "$d/quartzlauncher_48.png" 48 48
+    svg2png "${LAUNCHER_APPID}.svg" "$d/quartzlauncher_64.png" 64 64
+    svg2png "${LAUNCHER_APPID}.svg" "$d/quartzlauncher_128.png" 128 128
+    svg2png "${LAUNCHER_APPID}.svg" "$d/quartzlauncher_256.png" 256 256
 
-    oxipng --opt max --strip all --alpha --interlace 0 "$d/prismlauncher_"*".png"
+    oxipng --opt max --strip all --alpha --interlace 0 "$d"/quartzlauncher_*.png
 
-    rm prismlauncher.ico && icotool -o prismlauncher.ico -c \
-        "$d/prismlauncher_256.png"  \
-        "$d/prismlauncher_128.png"  \
-        "$d/prismlauncher_64.png"   \
-        "$d/prismlauncher_48.png"   \
-        "$d/prismlauncher_32.png"   \
-        "$d/prismlauncher_24.png"   \
-        "$d/prismlauncher_16.png"
+    rm -f quartzlauncher.ico
+
+    icotool -o quartzlauncher.ico -c \
+        "$d/quartzlauncher_256.png" \
+        "$d/quartzlauncher_128.png" \
+        "$d/quartzlauncher_64.png" \
+        "$d/quartzlauncher_48.png" \
+        "$d/quartzlauncher_32.png" \
+        "$d/quartzlauncher_24.png" \
+        "$d/quartzlauncher_16.png"
+
+    echo "Generated quartzlauncher.ico"
+
 else
-    echo "ERROR: Windows icons were NOT generated!" >&2
-    echo "ERROR: requires inkscape, icotool and oxipng in PATH"
+    echo "Skipping Windows icon generation (inkscape/icotool/oxipng missing)."
 fi
 
-if command -v "inkscape" && command -v "iconutil" && command -v "oxipng"; then
-    # macOS ICNS
-    d=$(mktemp -d)
+# ----------------------------------------------------------------------
+# macOS ICNS
+# ----------------------------------------------------------------------
 
-    d="$d/prismlauncher.iconset"
+if command -v inkscape >/dev/null && \
+   command -v iconutil >/dev/null && \
+   command -v oxipng >/dev/null; then
+
+    tmp=$(mktemp -d)
+    d="$tmp/quartzlauncher.iconset"
 
     mkdir -p "$d"
 
-    svg2png ${LAUNCHER_APPID}.bigsur.svg "$d/icon_16x16.png" 16 16
-    svg2png ${LAUNCHER_APPID}.bigsur.svg "$d/icon_16x16@2x.png" 32 32
-    svg2png ${LAUNCHER_APPID}.bigsur.svg "$d/icon_32x32.png" 32 32
-    svg2png ${LAUNCHER_APPID}.bigsur.svg "$d/icon_32x32@2x.png" 64 64
-    svg2png ${LAUNCHER_APPID}.bigsur.svg "$d/icon_128x128.png" 128 128
-    svg2png ${LAUNCHER_APPID}.bigsur.svg "$d/icon_128x128@2x.png" 256 256
-    svg2png ${LAUNCHER_APPID}.bigsur.svg "$d/icon_256x256.png" 256 256
-    svg2png ${LAUNCHER_APPID}.bigsur.svg "$d/icon_256x256@2x.png" 512 512
-    svg2png ${LAUNCHER_APPID}.bigsur.svg "$d/icon_512x512.png" 512 512
-    svg2png ${LAUNCHER_APPID}.bigsur.svg "$d/icon_512x512@2x.png" 1024 1024
+    # Используем отдельный SVG для macOS, если он есть
+    if [ -f "${LAUNCHER_APPID}.bigsur.svg" ]; then
+        SVG="${LAUNCHER_APPID}.bigsur.svg"
+    else
+        SVG="${LAUNCHER_APPID}.svg"
+    fi
 
-    oxipng --opt max --strip all --alpha --interlace 0 "$d/icon_"*".png"
+    svg2png "$SVG" "$d/icon_16x16.png" 16 16
+    svg2png "$SVG" "$d/icon_16x16@2x.png" 32 32
+    svg2png "$SVG" "$d/icon_32x32.png" 32 32
+    svg2png "$SVG" "$d/icon_32x32@2x.png" 64 64
+    svg2png "$SVG" "$d/icon_128x128.png" 128 128
+    svg2png "$SVG" "$d/icon_128x128@2x.png" 256 256
+    svg2png "$SVG" "$d/icon_256x256.png" 256 256
+    svg2png "$SVG" "$d/icon_256x256@2x.png" 512 512
+    svg2png "$SVG" "$d/icon_512x512.png" 512 512
+    svg2png "$SVG" "$d/icon_512x512@2x.png" 1024 1024
+
+    oxipng --opt max --strip all --alpha --interlace 0 "$d"/icon_*.png
 
     iconutil -c icns "$d"
-    cp -v "$d/prismlauncher.icns" .
+
+    cp -v "$tmp/quartzlauncher.icns" .
+
+    echo "Generated quartzlauncher.icns"
+
 else
-    echo "ERROR: macOS icons were NOT generated!" >&2
-    echo "ERROR: requires inkscape, iconutil and oxipng in PATH"
+    echo "Skipping macOS icon generation (inkscape/iconutil/oxipng missing)."
 fi
 
-# replace icon in themes
-cp -v ${LAUNCHER_APPID}.svg "../launcher/resources/multimc/scalable/launcher.svg"
+# ----------------------------------------------------------------------
+# Launcher SVG
+# ----------------------------------------------------------------------
+
+if [ -d "../launcher/resources/multimc/scalable" ]; then
+    cp -v "${LAUNCHER_APPID}.svg" \
+        "../launcher/resources/multimc/scalable/launcher.svg"
+fi
+
+echo "Done."
