@@ -1,114 +1,202 @@
-<p align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/program_info/org.prismlauncher.PrismLauncher.logo-darkmode.svg">
-  <source media="(prefers-color-scheme: light)" srcset="/program_info/org.prismlauncher.PrismLauncher.logo.svg">
-  <img alt="Prism Launcher" src="/program_info/org.prismlauncher.PrismLauncher.logo.svg" width="40%">
-</picture>
-</p>
+# 🎮 Quartz Launcher
 
-<p align="center">
-  Prism Launcher is a custom launcher for Minecraft that allows you to easily manage multiple installations of Minecraft at once.<br />
-  <br />This is a <b>fork</b> of the MultiMC Launcher and is <b>not</b> endorsed by it.
-</p>
+> Play Minecraft without Microsoft account! / Играйте в Minecraft без аккаунта Microsoft!
 
-## Installation
+[![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)]()
+[![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 
-<a href="https://repology.org/project/prismlauncher/versions">
-    <img src="https://repology.org/badge/vertical-allrepos/prismlauncher.svg" alt="Packaging status" align="right">
-</a>
+[🇷🇺 Русская версия](README_OFFLINE_RU.md) | [🇬🇧 English Version](#english)
 
-- All downloads and instructions for Prism Launcher can be found on our [Website](https://prismlauncher.org/download).
-- Last build status can be found in the [GitHub Actions](https://github.com/PrismLauncher/PrismLauncher/actions) tab (this also includes the pull requests status).
+---
 
-### Development Builds
+## 🇷🇺 Русская версия
 
-Please understand that these builds are not intended for most users. There may be bugs, and other instabilities. You have been warned.
+### ✨ Что это?
 
-There are development builds available through:
+**Quartz Launcher** - это модифицированная версия PrismLauncher с полностью удаленной системой авторизации Microsoft.
 
-- [GitHub Actions](https://github.com/PrismLauncher/PrismLauncher/actions) (includes builds from pull requests opened by contributors)
-- [nightly.link](https://prismlauncher.org/nightly) (this will always point only to the latest version of develop)
+### 🎯 Особенности
 
-These have debug information in the binaries, so their file sizes are relatively larger.
+✅ **Без Microsoft** - не требуется аккаунт  
+✅ **Автономный** - работает без интернета  
+✅ **Без диалогов входа** - никаких окон авторизации  
+✅ **Автоматические офлайн-аккаунты**  
+✅ **Поддержка модов** - Forge, Fabric, Quilt  
+✅ **Модпаки** - CurseForge, Modrinth, FTB  
 
-Prebuilt Development builds are provided for **Linux**, **Windows** and **macOS**.
+### 📥 Установка
 
-On Linux, we also offer our own [Flatpak nightly repository](https://github.com/PrismLauncher/flatpak). Most software centers are able to install it by opening [this link](https://flatpak.prismlauncher.org/prismlauncher-nightly.flatpakref).
+```bash
+git clone https://github.com/your-repo/QuartzLauncher.git
+cd QuartzLauncher
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build . --config Release -j4
+```
 
-## Community & Support
+**Подробная инструкция:** [BUILD_INSTRUCTIONS_RU.md](BUILD_INSTRUCTIONS_RU.md)
 
-Feel free to create a GitHub issue if you find a bug or want to suggest a new feature. We have multiple community spaces where other community members can help you:
+### 📚 Документация
 
-- **Our Discord server:**
+- 📖 [Полное описание изменений](OFFLINE_ONLY_CHANGES.md)
+- 📝 [Краткая инструкция](ИНСТРУКЦИЯ.txt)
+- 📋 [Краткая сводка](SUMMARY_RU.md)
+- 🔨 [Инструкция по компиляции](BUILD_INSTRUCTIONS_RU.md)
+- 📚 [Индекс документации](INDEX_DOCUMENTS.md)
 
-[![Prism Launcher Discord server](https://discordapp.com/api/guilds/1031648380885147709/widget.png?style=banner3)](https://prismlauncher.org/discord)
+### ⚠️ Ограничения
 
-- **Our Matrix space:**
+❌ Не работают лицензионные серверы  
+❌ Нельзя менять скины через Microsoft  
+✅ Работает одиночная игра и пиратские серверы  
 
-[![Prism Launcher Space](https://img.shields.io/matrix/prismlauncher:matrix.org?style=for-the-badge&label=Matrix%20Space&logo=matrix&color=purple)](https://prismlauncher.org/matrix)
+---
 
-- **Our Subreddit:**
+## 🇬🇧 English
 
-[![r/PrismLauncher](https://img.shields.io/reddit/subreddit-subscribers/prismlauncher?style=for-the-badge&logo=reddit)](https://prismlauncher.org/reddit)
+### ✨ What is this?
 
-## Translations
+**Quartz Launcher** is a modified version of PrismLauncher with Microsoft authentication completely removed.
 
-The translation effort for Prism Launcher is hosted on [Weblate](https://hosted.weblate.org/projects/prismlauncher/launcher/) and information about translating Prism Launcher is available at <https://github.com/PrismLauncher/Translations>.
+### 🎯 Features
 
-## Building
+✅ **No Microsoft** - no account required  
+✅ **Fully offline** - works without internet  
+✅ **No login dialogs** - no authentication windows  
+✅ **Automatic offline accounts**  
+✅ **Mod support** - Forge, Fabric, Quilt  
+✅ **Modpacks** - CurseForge, Modrinth, FTB  
 
-If you want to build Prism Launcher yourself, check the [build instructions](https://prismlauncher.org/wiki/development/build-instructions).
+### 📥 Installation
 
-## Sponsors & Partners
+```bash
+git clone https://github.com/your-repo/QuartzLauncher.git
+cd QuartzLauncher
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build . --config Release -j4
+```
 
-We thank all the wonderful backers over at Open Collective! Support Prism Launcher by [becoming a backer](https://opencollective.com/prismlauncher).
+**Detailed instructions:** [BUILD_INSTRUCTIONS_RU.md](BUILD_INSTRUCTIONS_RU.md) (Russian)
 
-[![OpenCollective Backers](https://opencollective.com/prismlauncher/backers.svg?width=890&limit=1000)](https://opencollective.com/prismlauncher#backers)
+### 📚 Documentation
 
-Thanks to JetBrains for providing us a few licenses for all their products, as part of their [Open Source program](https://www.jetbrains.com/opensource/).
+- 📖 [Full changelog](OFFLINE_ONLY_CHANGES.md) (Russian)
+- 📋 [Summary](SUMMARY_RU.md) (Russian)
+- 📚 [Documentation index](INDEX_DOCUMENTS.md) (Russian)
 
-<a href="https://jb.gg/OpenSource">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://www.jetbrains.com/company/brand/img/logo_jb_dos_4.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg">
-  <img alt="JetBrains logo" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg" width="40%">
-</picture>
-</a>
+Most documentation is in Russian. English translation coming soon.
 
-Thanks to Weblate for hosting our translation efforts.
+### ⚠️ Limitations
 
-<a href="https://hosted.weblate.org/engage/prismlauncher/">
-<img src="https://hosted.weblate.org/widgets/prismlauncher/-/open-graph.png" alt="Translation status" width="300" />
-</a>
+❌ Licensed servers don't work  
+❌ Can't change skins via Microsoft  
+✅ Singleplayer and cracked servers work  
 
-Thanks to Netlify for providing us their excellent web services, as part of their [Open Source program](https://www.netlify.com/open-source/).
+---
 
-<a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> </a>
+## 🔧 What was changed?
 
-Thanks to the awesome people over at [MacStadium](https://www.macstadium.com/), for providing M1-Macs for development purposes!
+**5 files modified:**
+- `LaunchController.cpp` - Removed authentication checks
+- `Application.cpp` - Disabled login wizard
+- `AuthSession.cpp` - Improved offline mode
+- `VersionPage.cpp` - Removed account check for downloads
+- `AccountList.cpp` - Offline accounts are now valid
 
-<a href="https://www.macstadium.com"><img src="https://uploads-ssl.webflow.com/5ac3c046c82724970fc60918/5c019d917bba312af7553b49_MacStadium-developerlogo.png" alt="Powered by MacStadium" width="300"></a>
+**Details:** [OFFLINE_ONLY_CHANGES.md](OFFLINE_ONLY_CHANGES.md) (Russian)
 
-## Forking/Redistributing/Custom builds policy
+---
 
-You are free to fork, redistribute and provide custom builds as long as you follow the terms of the [license](LICENSE) (this is a legal responsibility), and if you made code changes rather than just packaging a custom build, please do the following as a basic courtesy:
+## 🎮 How it works now
 
-- Make it clear that your fork is not Prism Launcher and is not endorsed by or affiliated with the Prism Launcher project (<https://prismlauncher.org>).
-- Go through [CMakeLists.txt](CMakeLists.txt) and change Prism Launcher's API keys to your own or set them to empty strings (`""`) to disable them (this way the program will still compile but the functionality requiring those keys will be disabled).
+### First launch:
+```
+Before: Wizard → Microsoft Login → Auth Dialog
+Now:    Wizard → Language/Java/Theme → Done!
+```
 
-If you have any questions or want any clarification on the above conditions please make an issue and ask us.
+### Game launch:
+```
+Before: Check account → Select account → Refresh token → Launch
+Now:    Auto-create offline account → Launch
+```
 
-If you are just building Prism Launcher for your distribution, please make sure to set the `Launcher_BUILD_PLATFORM` to a slug representing your distribution. Examples are `archlinux`, `fedora` and `nixpkgs`.
+### Download Minecraft:
+```
+Before: Check Microsoft account → Download
+Now:    Download immediately
+```
 
-Note that if you build this software without removing the provided API keys in [CMakeLists.txt](CMakeLists.txt) you are accepting the following terms and conditions:
+---
 
-- [Microsoft Identity Platform Terms of Use](https://docs.microsoft.com/en-us/legal/microsoft-identity-platform/terms-of-use)
-- [CurseForge 3rd Party API Terms and Conditions](https://support.curseforge.com/en/support/solutions/articles/9000207405-curse-forge-3rd-party-api-terms-and-conditions)
+## 📋 Requirements
 
-If you do not agree with these terms and conditions, then remove the associated API keys from the [CMakeLists.txt](CMakeLists.txt) file by setting them to an empty string (`""`).
+### To run:
+- Windows 10+, Linux, macOS 11+
+- Java 8+ (for old Minecraft)
+- Java 17+ (for Minecraft 1.18+)
 
-## License [![https://github.com/PrismLauncher/PrismLauncher/blob/develop/LICENSE](https://img.shields.io/github/license/PrismLauncher/PrismLauncher?label=License&logo=gnu&color=C4282D)](LICENSE)
+### To compile:
+- CMake 3.15+
+- Qt 6.x
+- C++20 compiler (GCC 11+, Clang 14+, MSVC 2019+)
 
-All launcher code is available under the GPL-3.0-only license.
+---
 
-The logo and related assets are under the CC BY-SA 4.0 license.
+## ❓ FAQ
+
+**Q: Can I play on licensed servers?**  
+A: No, Microsoft account required.
+
+**Q: Do mods work?**  
+A: Yes! All mods and modpacks work normally.
+
+**Q: Can I change skins?**  
+A: No, Microsoft skin management is disabled.
+
+**Q: Is internet required?**  
+A: Only for downloading Minecraft and mods. Game launch works fully offline.
+
+**Q: Can I restore Microsoft authentication?**  
+A: Yes, use original PrismLauncher or revert changes via git.
+
+---
+
+## 🤝 Credits
+
+Original PrismLauncher: https://github.com/PrismLauncher/PrismLauncher
+
+**Quartz Launcher** is a modification with removed Microsoft authentication system.
+
+---
+
+## 📜 License
+
+GPL-3.0 - same as original PrismLauncher.
+
+---
+
+## ⚠️ Disclaimer
+
+This modification is intended for legal use with purchased Minecraft in singleplayer or on cracked servers. We don't encourage piracy - buy the game if you like Minecraft!
+
+---
+
+## 🌟 Quick Links
+
+| Link | Description |
+|------|-------------|
+| [📖 Full Changes (RU)](OFFLINE_ONLY_CHANGES.md) | Complete technical description |
+| [📝 User Guide (RU)](ИНСТРУКЦИЯ.txt) | Simple instructions |
+| [📋 Summary (RU)](SUMMARY_RU.md) | Quick overview |
+| [🔨 Build Guide (RU)](BUILD_INSTRUCTIONS_RU.md) | Compilation instructions |
+| [📚 Docs Index (RU)](INDEX_DOCUMENTS.md) | Documentation index |
+| [📋 Changelog (RU)](CHANGELOG_OFFLINE.md) | Detailed changelog |
+
+---
+
+**Made with ❤️ for Minecraft community**
+
+*Release date: July 9, 2026*

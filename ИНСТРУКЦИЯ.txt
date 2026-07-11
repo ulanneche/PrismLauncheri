@@ -1,0 +1,120 @@
+═══════════════════════════════════════════════════════════════════
+  QUARTZ LAUNCHER - ОФЛАЙН ВЕРСИЯ (БЕЗ АВТОРИЗАЦИИ MICROSOFT)
+═══════════════════════════════════════════════════════════════════
+
+ЧТО БЫЛО СДЕЛАНО:
+═════════════════
+
+✅ Полностью удалена система авторизации Microsoft
+✅ Удалено окно входа в аккаунт при первом запуске
+✅ Удалены все диалоги авторизации и выбора аккаунта
+✅ Игра запускается без проверки наличия аккаунта
+✅ Автоматически создается офлайн-аккаунт
+✅ Проект переименован в Quartz Launcher
+
+ОСНОВНЫЕ ИЗМЕНЕНИЯ:
+═══════════════════
+
+1. При запуске лаунчера:
+   - Не требуется вход в Microsoft аккаунт
+   - Автоматически создается офлайн-аккаунт "Player"
+   - Мастер установки не показывает страницу авторизации
+
+2. При запуске игры:
+   - Не требуется выбор аккаунта
+   - Всегда используется офлайн-режим
+   - Не проверяется интернет-соединение
+   - Автоматически создается аккаунт если его нет
+
+3. При скачивании Minecraft:
+   - Не требуется аккаунт для скачивания
+   - Работает сразу без настройки
+
+ИЗМЕНЕННЫЕ ФАЙЛЫ:
+═════════════════
+
+launcher/LaunchController.cpp         - Убраны все проверки авторизации
+launcher/Application.cpp              - Отключен мастер входа
+launcher/minecraft/auth/AuthSession.cpp   - Улучшен офлайн-режим
+launcher/ui/pages/instance/VersionPage.cpp - Убрана проверка при скачивании
+launcher/minecraft/auth/AccountList.cpp   - Офлайн-аккаунты теперь валидны
+program_info/CMakeLists.txt           - Ребренд на Quartz Launcher
+
+КОМПИЛЯЦИЯ:
+═══════════
+
+1. Откройте терминал в папке проекта
+2. Выполните команды:
+
+   Windows (CMD):
+   ═════════════
+   cd build
+   cmake ..
+   cmake --build . --config Release
+
+   Linux:
+   ══════
+   cd build
+   cmake .. -DCMAKE_BUILD_TYPE=Release
+   cmake --build . --config Release -j$(nproc)
+
+   macOS:
+   ══════
+   cd build
+   cmake .. -DCMAKE_BUILD_TYPE=Release
+   cmake --build . --config Release -j$(sysctl -n hw.ncpu)
+
+3. Скомпилированный лаунчер будет:
+   - Windows: build\launcher\Release\quartzlauncher.exe
+   - Linux: build/launcher/quartzlauncher
+   - macOS: build/launcher/QuartzLauncher.app
+
+КАК ИСПОЛЬЗОВАТЬ:
+═════════════════
+
+1. Запустите Quartz Launcher
+2. Пройдите начальную настройку (язык, Java)
+3. Добавьте инстанс Minecraft (версию игры)
+4. Нажмите "Launch" - игра запустится автоматически!
+
+УПРАВЛЕНИЕ АККАУНТАМИ:
+══════════════════════
+
+- Меню "Settings" → "Accounts"
+- Кнопка "Add Offline" для создания нового офлайн-аккаунта
+- Можно создать несколько аккаунтов с разными никнеймами
+- Кнопки Microsoft аккаунта удалены
+
+НОВОЕ ИМЯ ПРОЕКТА:
+══════════════════
+
+Проект переименован из PrismLauncher в Quartz Launcher:
+
+Файлы:
+- quartzlauncher.exe (Windows)
+- quartzlauncher (Linux)
+- QuartzLauncher.app (macOS)
+
+Папки конфигурации:
+- Windows: %APPDATA%\QuartzLauncher\
+- Linux: ~/.local/share/QuartzLauncher/
+- macOS: ~/Library/Application Support/QuartzLauncher/
+
+Переменные окружения:
+- QUARTZLAUNCHER_JAVA_PATH
+- QUARTZLAUNCHER_DATA_DIR
+
+ДОПОЛНИТЕЛЬНО:
+══════════════
+
+Подробная информация об изменениях в файлах:
+- OFFLINE_ONLY_CHANGES.md - Технические изменения
+- REBRAND_TO_QUARTZ.md - Описание ребренда
+
+Старый лог изменений (если был):
+- OFFLINE_MODE_CHANGES.md
+
+═══════════════════════════════════════════════════════════════════
+  Теперь можно играть в Minecraft без аккаунта Microsoft!
+  Добро пожаловать в Quartz Launcher!
+═══════════════════════════════════════════════════════════════════
